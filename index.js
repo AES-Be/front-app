@@ -60,5 +60,5 @@ var http = app.listen(config.httpPort, function () {
   });
 });
 
-herokuAwake('unbend');
+herokuAwake('aes-front-app');
 
