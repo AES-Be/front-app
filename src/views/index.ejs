@@ -77,6 +77,18 @@
         </ul>
     </div>
     <div id="top-w">
+        <div id="pathway" ng-controller="newsletterCtrl">
+            <form ng-submit="submit()" id="newsletter-form">
+                <div class="search">
+                    <input ng-model="email" id="mod_search_searchword" maxlength="200" class="inputbox" type="email" size="200" placeholder="Subscribe to our newsletter!">
+                    <input type="submit" value="Subscribe" class="button specialright">
+                </div>
+            </form>
+            <span id="newsletter-in-progress" class="hidden">In progress...</span>
+            <span id="newsletter-success" class="hidden">You are correctly subscribed to our newsletter!</span>
+            <span id="newsletter-already" class="hidden">Oups! It looks like you are already subscribed!</span>
+            <span id="newsletter-error" class="hidden">Oups! Something happend during the subscription, please <a ng-click="retry()">retry</a>.</span>
+        </div>
         <div id="social-links">
             <div id="email">
                 <a href="mailto:contact@aes-be.org">
@@ -107,7 +119,7 @@
             <div id="wrapper-box">
                 <div class="box">
                     <div class="moduletable">
-                        <h3>AGM 2013</h3>
+                        <h3>AGM 2014</h3>
                         <div class="custom">
                             <img style="display: block; margin-left: auto; margin-right: auto;" src="/assets/img/events/mixer_AES_2013.jpg" alt="Audio Engineering Society - An event" width="226" height="121" />
 
@@ -202,6 +214,7 @@
     <script type="text/javascript" src="/assets/js/angular_scripts/directives/slideshowDirectives.js"></script>
     <script type="text/javascript" src="/assets/js/angular_scripts/controller/ContactCtrl.js"></script>
     <script type="text/javascript" src="/assets/js/angular_scripts/controller/NavCtrl.js"></script>
+    <script type="text/javascript" src="/assets/js/angular_scripts/controller/NewsletterCtrl.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $(' .navigation ul  ').superfish({

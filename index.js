@@ -16,6 +16,7 @@ var logger           = require('./src/resources/logger');
 
 var root             = require('./src/routes/root');
 var sitemap          = require('./src/routes/sitemap');
+var newsletter       = require('./src/routes/newsletter');
 var apiSendemail     = require('./src/routes/api/apiSendEmail');
 var apiEvents        = require('./src/routes/api/apiEvents');
 
@@ -38,6 +39,7 @@ app.use(favicon(__dirname + '/src/static/assets/img/favicon/favicon.ico'));
  */
 app.use('/', root);
 app.use('/sitemap.xml', sitemap);
+app.use('/newsletter', newsletter);
 app.use('/api/sendemail', apiSendemail);
 app.use('/api/events', apiEvents);
 
