@@ -31,56 +31,74 @@ router.get('/view/home', function (req, res) {
 });
 
 /**
- * Get Studio page.
+ * Get About page.
  */
-router.get('/studio', function (req, res) {
+router.get('/about', function (req, res) {
 
   res.render('index');
 
 });
 
 /**
- * Get Studio view.
+ * Get About view.
  */
-router.get('/view/studio', function (req, res) {
+router.get('/view/about', function (req, res) {
 
-  res.render('studio');
+  res.render('about');
 
 });
 
 /**
- * Get Discography page.
+ * Get Events page.
  */
-router.get('/discography', function (req, res) {
+router.get('/events', function (req, res) {
 
   res.render('index');
 
 });
 
 /**
- * Get Discography view.
+ * Get Events view.
  */
-router.get('/view/discography', function (req, res) {
+router.get('/view/events', function (req, res) {
 
-  res.render('discography');
+  res.render('events');
 
 });
 
 /**
- * Get Contact page.
+ * Get Membership page.
  */
-router.get('/contact', function (req, res) {
+router.get('/membership', function (req, res) {
 
   res.render('index');
 
 });
 
 /**
- * Get Contact view
+ * Get Membership view
  */
-router.get('/view/contact', function (req, res) {
+router.get('/view/membership', function (req, res) {
 
-  res.render('contact');
+  res.render('membership');
+
+});
+
+/**
+ * Get Students page.
+ */
+router.get('/students', function (req, res) {
+
+  res.render('index');
+
+});
+
+/**
+ * Get Students view
+ */
+router.get('/view/students', function (req, res) {
+
+  res.render('students');
 
 });
 

@@ -1,4 +1,8 @@
-var app = angular.module('app', ['ngRoute', 'ngAnimate', 'directives.slideshow']);
+'use strict';
+
+var app = angular.module('app', ['ngRoute',
+                                 'ngAnimate',
+                                 'directives.slideshow']);
 
 app.config(function ($animateProvider) {
   $animateProvider.classNameFilter(/angular-animate/);
@@ -14,9 +18,10 @@ app.config(function ($locationProvider) {
 app.config(function ($routeProvider, $httpProvider) {
   $routeProvider
       .when('/', {templateUrl: 'view/home'})
-      .when('/discography', {templateUrl: 'view/discography'})
-      .when('/studio', {templateUrl: 'view/studio'})
-      .when('/contact', {templateUrl: 'view/contact'})
+      .when('/about', {templateUrl: 'view/about'})
+      .when('/events', {templateUrl: 'view/events'})
+      .when('/membership', {templateUrl: 'view/membership'})
+      .when('/students', {templateUrl: 'view/students'})
       .otherwise({redirectTo: '/'});
   delete $httpProvider.defaults.headers.common['X-Requested-With'];
   delete $httpProvider.defaults.headers.common['Content-Type'];

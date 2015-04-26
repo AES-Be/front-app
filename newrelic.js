@@ -1,8 +1,10 @@
+var config = require('config');
+
 exports.config = {
 
-  app_name: ['Unbend_front'],
+  app_name: ['AES-Front-App'],
 
-  license_key: process.env.NEW_RELIC_LICENSE_KEY,
+  license_key: config.newRelic.key,
   logging: {
 
     level: 'info'

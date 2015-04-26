@@ -57,21 +57,21 @@
             <img src="/assets/img/logo.png" align="middle" width="90" height="110" alt="AES Logo">
         </a>
     </div>
-    <div class="navigation">
+    <div class="navigation" ng-controller="navCtrl">
         <ul class="menu sf-js-enabled">
-            <li class="current active">
+            <li ng-class="navHomeActive ? 'current active' : ''">
                 <a href="/home">Home</a>
             </li>
-            <li>
+            <li ng-class="navAboutActive ? 'current active' : ''">
                 <a href="/about">About</a>
             </li>
-            <li>
+            <li ng-class="navEventsActive ? 'current active' : ''">
                 <a href="/events">Events</a>
             </li>
-            <li>
+            <li ng-class="navMembershipActive ? 'current active' : ''">
                 <a href="/membership">Membership</a>
             </li>
-            <li>
+            <li ng-class="navStudentsActive ? 'current active' : ''">
                 <a href="/students">Students</a>
             </li>
         </ul>
@@ -105,7 +105,7 @@
     <div id="footer">
         <div class="pagewidth">
             <div id="wrapper-box">
-                <div class="box">
+                <!-- <div class="box">
                     <div class="moduletable">
                         <h3>AGM 2013</h3>
                         <div class="custom">
@@ -118,7 +118,7 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="box">
                     <div class="moduletable" align="center">
                         <h3>The Committee</h3>
@@ -201,6 +201,7 @@
     <script type="text/javascript" src="/assets/js/angular_scripts/app.js"></script>
     <script type="text/javascript" src="/assets/js/angular_scripts/directives/slideshowDirectives.js"></script>
     <script type="text/javascript" src="/assets/js/angular_scripts/controller/ContactCtrl.js"></script>
+    <script type="text/javascript" src="/assets/js/angular_scripts/controller/NavCtrl.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $(' .navigation ul  ').superfish({

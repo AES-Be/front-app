@@ -20,13 +20,16 @@ module.exports = {
     twitter  : '@unbendrecords'
   },
   abm: {
-    baseUrl: 'http://unbend.be/'
+    baseUrl: 'http://www.aes-be.org/'
   },
   postmark: {
-    key: env.POSTMARK_API_KEY
+    key: env.POSTMARK_API_TOKEN
   },
   mailchimp : {
     key: env.mailchimp_key,
     newsletterListId: env.mailchimp_newsletter_list_id
+  },
+  newRelic: {
+    key: env.NEW_RELIC_LICENSE_KEY
   }
 };
