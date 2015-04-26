@@ -17,7 +17,7 @@ module.exports = {
     dbName     : env.db_dbName
   },
   socialMedia: {
-    twitter  : '@unbendrecords'
+    twitter  : '@aesbelgium'
   },
   abm: {
     baseUrl: 'http://www.aes-be.org/'
