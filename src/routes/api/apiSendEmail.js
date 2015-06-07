@@ -18,8 +18,8 @@ router.post('/', function (req, res) {
   var tag     = req.body.tag;
 
   var mailOptions = {
-    From: 'AES-Be <vice-chair-fr@aes-be.org>',
-    To: 'vice-chair-fr@aes-be.org',
+    From: 'Audio Engineering Society - Belgium <contact@aes-be.org>',
+    To: 'contact@aes-be.org',
     replyTo: email,
     Subject: name + ' leaves you a message',
     TextBody: 'expeditor : ' + name + ' (' + email + ')\nmessage : ' + message,

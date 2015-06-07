@@ -2,8 +2,6 @@
 
 'use strict';
 
-require('newrelic');
-
 var bodyParser       = require('body-parser');
 var compress         = require('compression');
 var config           = require('config');
@@ -20,7 +18,7 @@ var root             = require('./src/routes/root');
 var sitemap          = require('./src/routes/sitemap');
 var newsletter       = require('./src/routes/newsletter');
 var apiSendemail     = require('./src/routes/api/apiSendEmail');
-var apiEvents        = require('./src/routes/api/apiEvents');
+// var apiEvents        = require('./src/routes/api/apiEvents');
 
 var app              = express();
 
@@ -37,13 +35,32 @@ app.use(prerender.set('prerenderToken', config.prerender.token));
 app.use(favicon(__dirname + '/src/static/assets/img/favicon/favicon.ico'));
 
 /*
+  WWW to now-WWW
+ */
+app.get('/*', function (req, res, next) {
+  if (req.headers.host.match(/^www/) !== null) {
+    res.redirect(301, 'http://' + req.headers.host.replace(/^www\./, '') + req.url);
+  } else {
+    next();
+  }
+})
+
+
+/*
   Routes
  */
 app.use('/', root);
 app.use('/sitemap.xml', sitemap);
 app.use('/newsletter', newsletter);
 app.use('/api/sendemail', apiSendemail);
-app.use('/api/events', apiEvents);
+// app.use('/api/events', apiEvents);
+
+/*
+  404
+ */
+app.use(function (req, res, next) {
+  res.status(404).render('index');
+});
 
 /*
   Logger
