@@ -1,26 +1,20 @@
-/// <reference path="typings/node/node.d.ts"/>
-
 'use strict';
 
-var bodyParser       = require('body-parser');
-var compress         = require('compression');
-var config           = require('config');
-var express          = require('express');
-var favicon          = require('serve-favicon');
-var path             = require('path');
-var prerender        = require('prerender-node');
+var bodyParser = require('body-parser');
+var compress = require('compression');
+var config = require('config');
+var express = require('express');
+var favicon = require('serve-favicon');
+var path = require('path');
 
-var herokuAwake      = require('./src/resources/herokuAwake');
+var logger = require('./src/resources/logger');
 
-var logger           = require('./src/resources/logger');
+var root = require('./src/routes/root');
+var sitemap = require('./src/routes/sitemap');
+var newsletter = require('./src/routes/newsletter');
+var apiSendemail = require('./src/routes/api/apiSendEmail');
 
-var root             = require('./src/routes/root');
-var sitemap          = require('./src/routes/sitemap');
-var newsletter       = require('./src/routes/newsletter');
-var apiSendemail     = require('./src/routes/api/apiSendEmail');
-// var apiEvents        = require('./src/routes/api/apiEvents');
-
-var app              = express();
+var app = express();
 
 /*
   App Config
@@ -31,7 +25,6 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ reviver: true }));
 app.use(express.static(path.join(__dirname, './src/static')));
-app.use(prerender.set('prerenderToken', config.prerender.token));
 app.use(favicon(__dirname + '/src/static/assets/img/favicon/favicon.ico'));
 
 /*
@@ -43,8 +36,7 @@ app.get('/*', function (req, res, next) {
   } else {
     next();
   }
-})
-
+});
 
 /*
   Routes
@@ -53,7 +45,6 @@ app.use('/', root);
 app.use('/sitemap.xml', sitemap);
 app.use('/newsletter', newsletter);
 app.use('/api/sendemail', apiSendemail);
-// app.use('/api/events', apiEvents);
 
 /*
   404
@@ -80,6 +71,3 @@ var http = app.listen(config.httpPort, function () {
     state: 'http server started!'
   });
 });
-
-herokuAwake('aes-front-app');
-
