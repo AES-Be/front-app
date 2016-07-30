@@ -102,4 +102,13 @@ router.get('/view/students', function (req, res) {
 
 });
 
+/**
+ * Get signup page.
+ */
+router.get('/signup', function (req, res) {
+
+  res.render('signup');
+
+});
+
 module.exports = router;
